@@ -60,17 +60,13 @@ func handle_controls() -> void:
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 
-func handle_movement(delta: float) -> void:
-	var current_pos: Vector2 = self.position
-	
-	var delta_speed: float = movement_speed
-	
+func handle_movement() -> void:		
 	match move_direction:
 		MOVE_SET.LEFT:
-			self.velocity.x = -delta_speed
+			self.velocity.x = -movement_speed
 			self.rotation_degrees = -horizontal_rotation_deg
 		MOVE_SET.RIGHT:
-			self.velocity.x = delta_speed
+			self.velocity.x = movement_speed
 			self.rotation_degrees = horizontal_rotation_deg
 		MOVE_SET.NONE:
 			self.rotation_degrees = 0
@@ -80,5 +76,5 @@ func handle_movement(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	handle_controls()
-	handle_movement(delta)
+	handle_movement()
 	handle_shoot_delay(delta)
