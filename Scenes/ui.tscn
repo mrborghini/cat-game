@@ -17,4 +17,3 @@ offset_bottom = 269.0
 theme_override_font_sizes/normal_font_size = 30
 text = "Fps:"
 script = ExtResource("1_x8vme")
-show_fps = false
