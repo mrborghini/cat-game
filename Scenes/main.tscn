@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdhr68sidstfa"]
+
+[ext_resource type="PackedScene" uid="uid://bmjsssgtf561d" path="res://Scenes/Player.tscn" id="1_2werf"]
+[ext_resource type="PackedScene" uid="uid://b81cjrbgg2thg" path="res://Scenes/ui.tscn" id="2_bh1o3"]
+
+[node name="World" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.5, 2.5)
+
+[node name="cat" parent="." instance=ExtResource("1_2werf")]
+position = Vector2(0, 82)
+shoot_delay = 0.5
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -128.0
+offset_top = -96.0
+offset_right = 128.0
+offset_bottom = 96.0
+
+[node name="UI" parent="Control" instance=ExtResource("2_bh1o3")]
+layout_mode = 1
+scale = Vector2(0.275, 0.275)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
