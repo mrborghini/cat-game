@@ -13,9 +13,11 @@ enum MOVE_SET {
 @export var horizontal_rotation_deg: float = 10
 @export var shoot_delay: float = 2
 @export var projectile_scene: PackedScene
+@export var shoot_animation_speed: float = 2
 
 var shoot_blocked: bool = false
 var current_time: float = 0
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	if !projectile_scene:
@@ -27,6 +29,7 @@ func shoot() -> void:
 		return
 
 	shoot_blocked = true
+	animated_sprite.play("attack", shoot_animation_speed)
 
 	var projectile: Area2D = projectile_scene.instantiate()
 	projectile.global_transform = global_transform
