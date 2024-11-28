@@ -3,6 +3,8 @@ extends Area2D
 @export var rotation_speed: float = 1000
 @export var projectile_speed: float = 200
 @export var despawn_time: float = 5
+@export var enemy_projectile: bool = false
+
 var current_time: float = 0
 
 func _ready() -> void:
@@ -17,7 +19,11 @@ func _process(delta: float) -> void:
 	# Move the projectile forward
 	var new_pos: float = projectile_speed * delta
 	var current_position: Vector2 = self.position
-	self.position = Vector2(current_position.x, current_position.y - new_pos)
+	
+	if enemy_projectile:
+		self.position = Vector2(current_position.x, current_position.y + new_pos)
+	else:
+		self.position = Vector2(current_position.x, current_position.y - new_pos)
 	
 	# Rotate the ball
 	var current_rotation: float = self.rotation_degrees

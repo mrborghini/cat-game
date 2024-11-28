@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 enum MOVE_SET {
 	LEFT,
@@ -63,21 +63,20 @@ func handle_controls() -> void:
 func handle_movement(delta: float) -> void:
 	var current_pos: Vector2 = self.position
 	
-	var delta_speed: float = movement_speed * delta
+	var delta_speed: float = movement_speed
 	
 	match move_direction:
 		MOVE_SET.LEFT:
-			self.position = Vector2(current_pos.x - delta_speed, current_pos.y)
+			self.velocity.x = -delta_speed
 			self.rotation_degrees = -horizontal_rotation_deg
 		MOVE_SET.RIGHT:
-			self.position = Vector2(current_pos.x + delta_speed, current_pos.y)
+			self.velocity.x = delta_speed
 			self.rotation_degrees = horizontal_rotation_deg
-		MOVE_SET.UP:
-			self.position = Vector2(current_pos.x, current_pos.y + delta_speed)
-		MOVE_SET.DOWN:
-			self.position = Vector2(current_pos.x, current_pos.y - delta_speed)
 		MOVE_SET.NONE:
 			self.rotation_degrees = 0
+			self.velocity = Vector2()
+			
+	move_and_slide()
 
 func _process(delta: float) -> void:
 	handle_controls()
