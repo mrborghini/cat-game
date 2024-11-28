@@ -5,6 +5,9 @@ extends Area2D
 @export var despawn_time: float = 5
 var current_time: float = 0
 
+func _ready() -> void:
+	self.rotation_degrees = 0
+
 func _process(delta: float) -> void:
 	# Handle despawn time
 	current_time = current_time + delta
