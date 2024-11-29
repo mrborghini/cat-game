@@ -1,14 +1,18 @@
 extends Area2D
+class_name Projectile
 
 @export var rotation_speed: float = 1000
 @export var projectile_speed: float = 200
 @export var despawn_time: float = 5
 @export var enemy_projectile: bool = false
+@export var damage: int = 5
+@onready var explosion_particle: CPUParticles2D = $Explosion
 
 var current_time: float = 0
 
 func _ready() -> void:
 	self.rotation_degrees = 0
+	connect("body_entered", _on_body_entered)
 
 func _process(delta: float) -> void:
 	# Handle despawn time
@@ -29,3 +33,9 @@ func _process(delta: float) -> void:
 	var current_rotation: float = self.rotation_degrees
 	var delta_speed: float = rotation_speed * delta
 	self.rotation_degrees = current_rotation + delta_speed
+
+func _on_body_entered(body: Node) -> void:
+	if body is Entity:
+		body.take_damage(damage)
+		explosion_particle.emitting = true
+		queue_free()

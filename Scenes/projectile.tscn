@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cur4rfo3fk6s5"]
+[gd_scene load_steps=6 format=3 uid="uid://cur4rfo3fk6s5"]
 
 [ext_resource type="Texture2D" uid="uid://bcy1wxv0rmbf3" path="res://sprites/fireball.png" id="1_cxcn1"]
 [ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_rlpqv"]
@@ -6,6 +6,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2viwo"]
 size = Vector2(2, 6)
+
+[sub_resource type="Gradient" id="Gradient_now52"]
+offsets = PackedFloat32Array(0, 0.613333, 1)
+colors = PackedColorArray(0.729412, 0, 0, 1, 0.877709, 0.577509, 0.109598, 1, 0.00910882, 0.00901763, 3.00817e-09, 1)
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_rlpqv")
@@ -22,3 +26,17 @@ texture = ExtResource("2_klm64")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.333311, 3.76021e-07, 7.21961e-08, 1)
 texture = ExtResource("1_cxcn1")
+
+[node name="Explosion" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+one_shot = true
+explosiveness = 0.3
+randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 5.0
+spread = 0.0
+gravity = Vector2(0, 0)
+radial_accel_min = 46.46
+radial_accel_max = 48.48
+color_ramp = SubResource("Gradient_now52")
