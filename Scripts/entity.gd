@@ -42,7 +42,6 @@ func handle_movement() -> void:
 
 func shoot(is_enemy: bool = false) -> void:
 	if shoot_blocked:
-		print("shootdelay")
 		return
 
 	shoot_blocked = true

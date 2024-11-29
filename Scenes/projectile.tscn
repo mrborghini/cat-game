@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://cur4rfo3fk6s5"]
+[gd_scene load_steps=5 format=3 uid="uid://cur4rfo3fk6s5"]
 
-[ext_resource type="Texture2D" uid="uid://bcy1wxv0rmbf3" path="res://sprites/fireball.png" id="1_cxcn1"]
 [ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_rlpqv"]
 [ext_resource type="Texture2D" uid="uid://con1je02kaeeo" path="res://sprites/bullet.png" id="2_klm64"]
 
@@ -23,20 +22,17 @@ texture_filter = 1
 position = Vector2(0, -1.84)
 texture = ExtResource("2_klm64")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.333311, 3.76021e-07, 7.21961e-08, 1)
-texture = ExtResource("1_cxcn1")
-
 [node name="Explosion" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 100
 one_shot = true
-explosiveness = 0.3
-randomness = 1.0
+explosiveness = 1.0
+randomness = 0.19
+lifetime_randomness = 0.55
 emission_shape = 1
 emission_sphere_radius = 5.0
-spread = 0.0
+direction = Vector2(0, 0)
 gravity = Vector2(0, 0)
-radial_accel_min = 46.46
-radial_accel_max = 48.48
+radial_accel_min = 5.94
+radial_accel_max = 100.0
 color_ramp = SubResource("Gradient_now52")

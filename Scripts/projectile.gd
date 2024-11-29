@@ -8,6 +8,10 @@ class_name Projectile
 @export var damage: int = 5
 @onready var explosion_particle: CPUParticles2D = $Explosion
 
+var has_hit: bool = false
+var particle_played: bool = false
+@onready var sprite: Sprite2D = $Sprite2D
+
 var current_time: float = 0
 
 func _ready() -> void:
@@ -15,12 +19,16 @@ func _ready() -> void:
 	connect("body_entered", _on_body_entered)
 
 func _process(delta: float) -> void:
+	handle_hit()
 	# Handle despawn time
 	current_time = current_time + delta
 	if current_time > despawn_time:
 		queue_free()
 	
 	# Move the projectile forward
+	if has_hit:
+		return
+
 	var new_pos: float = projectile_speed * delta
 	var current_position: Vector2 = self.position
 	
@@ -34,8 +42,20 @@ func _process(delta: float) -> void:
 	var delta_speed: float = rotation_speed * delta
 	self.rotation_degrees = current_rotation + delta_speed
 
+func handle_hit() -> void:
+	if !has_hit:
+		return
+
+	sprite.apply_scale(Vector2())
+
+	if !particle_played:
+		explosion_particle.emitting = true
+		particle_played = true
+	
+	if !explosion_particle.emitting:
+		queue_free()
+
 func _on_body_entered(body: Node) -> void:
 	if body is Entity:
 		body.take_damage(damage)
-		explosion_particle.emitting = true
-		queue_free()
+		has_hit = true
