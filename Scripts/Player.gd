@@ -11,7 +11,7 @@ enum MOVE_SET {
 @export var movement_speed: float = 50
 @export var move_direction: MOVE_SET = MOVE_SET.NONE
 @export var horizontal_rotation_deg: float = 10
-@export var shoot_delay: float = 2
+@export var shoot_delay: float = 0.3
 @export var projectile_scene: PackedScene
 @export var shoot_animation_speed: float = 2
 
