@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_617ei"]
 [ext_resource type="PackedScene" uid="uid://b81cjrbgg2thg" path="res://scenes/ui.tscn" id="2_bh1o3"]
 [ext_resource type="Script" path="res://scripts/zoom.gd" id="3_21ks4"]
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="4_nkhcx"]
+[ext_resource type="PackedScene" uid="uid://ccuywcocxesi8" path="res://scenes/enemy_cat.tscn" id="5_o4yjn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i60oi"]
 size = Vector2(20, 193)
@@ -19,13 +19,13 @@ scroll_speed = 50.0
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -128.0
-offset_top = -96.0
-offset_right = 128.0
-offset_bottom = 96.0
 
 [node name="UI" parent="Control" instance=ExtResource("2_bh1o3")]
 layout_mode = 1
+offset_left = -126.0
+offset_top = -95.0
+offset_right = -126.0
+offset_bottom = -95.0
 scale = Vector2(0.275, 0.275)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -47,10 +47,5 @@ shape = SubResource("RectangleShape2D_qylr3")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 
-[node name="EnemyCat" parent="." instance=ExtResource("1_2werf")]
-position = Vector2(-90, -62)
-script = ExtResource("4_nkhcx")
-movement_delay = 1.0
-min_speed = 10.0
-max_speed = 100.0
-movement_speed = 25.0
+[node name="EnemyCat" parent="." instance=ExtResource("5_o4yjn")]
+position = Vector2(-73, -44)
