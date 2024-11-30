@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdhr68sidstfa"]
+[gd_scene load_steps=8 format=3 uid="uid://cdhr68sidstfa"]
 
-[ext_resource type="PackedScene" uid="uid://bmjsssgtf561d" path="res://Scenes/Player.tscn" id="1_2werf"]
-[ext_resource type="Script" path="res://Scripts/world.gd" id="1_617ei"]
-[ext_resource type="PackedScene" uid="uid://b81cjrbgg2thg" path="res://Scenes/ui.tscn" id="2_bh1o3"]
-[ext_resource type="Script" path="res://Scripts/enemy.gd" id="4_nkhcx"]
+[ext_resource type="PackedScene" uid="uid://bmjsssgtf561d" path="res://scenes/player.tscn" id="1_2werf"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_617ei"]
+[ext_resource type="PackedScene" uid="uid://b81cjrbgg2thg" path="res://scenes/ui.tscn" id="2_bh1o3"]
+[ext_resource type="Script" path="res://scripts/zoom.gd" id="3_21ks4"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="4_nkhcx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i60oi"]
 size = Vector2(20, 193)
@@ -29,6 +30,7 @@ scale = Vector2(0.275, 0.275)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
+script = ExtResource("3_21ks4")
 
 [node name="cat" parent="." instance=ExtResource("1_2werf")]
 position = Vector2(0, 82)
@@ -45,8 +47,8 @@ shape = SubResource("RectangleShape2D_qylr3")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 
-[node name="enemycat" parent="." instance=ExtResource("1_2werf")]
-position = Vector2(0, -59)
+[node name="EnemyCat" parent="." instance=ExtResource("1_2werf")]
+position = Vector2(-90, -62)
 script = ExtResource("4_nkhcx")
 movement_delay = 1.0
 min_speed = 10.0

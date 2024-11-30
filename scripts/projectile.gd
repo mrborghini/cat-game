@@ -56,6 +56,6 @@ func handle_hit() -> void:
 		queue_free()
 
 func _on_body_entered(body: Node) -> void:
-	if body is Entity:
+	if body is Entity && !has_hit:
 		body.take_damage(damage)
 		has_hit = true

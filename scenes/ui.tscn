@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b81cjrbgg2thg"]
 
-[ext_resource type="Script" path="res://Scripts/fps.gd" id="1_x8vme"]
+[ext_resource type="Script" path="res://scripts/fps.gd" id="1_x8vme"]
 
 [node name="UI" type="Control"]
 layout_mode = 3

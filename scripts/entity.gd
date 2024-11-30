@@ -16,7 +16,7 @@ var last_shot_time: float = 0
 
 var shoot_blocked: bool = false
 
-const ENUMS = preload("res://Scripts/enums.gd")
+const ENUMS = preload("res://scripts/enums.gd")
 const MOVE_SET = ENUMS.MOVE_SET
 
 func take_damage(damage: int) -> void:
