@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdhr68sidstfa"]
+[gd_scene load_steps=9 format=3 uid="uid://cdhr68sidstfa"]
 
 [ext_resource type="PackedScene" uid="uid://bmjsssgtf561d" path="res://scenes/player.tscn" id="1_2werf"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_617ei"]
 [ext_resource type="PackedScene" uid="uid://b81cjrbgg2thg" path="res://scenes/ui.tscn" id="2_bh1o3"]
 [ext_resource type="Script" path="res://scripts/zoom.gd" id="3_21ks4"]
 [ext_resource type="PackedScene" uid="uid://ccuywcocxesi8" path="res://scenes/enemy_cat.tscn" id="5_o4yjn"]
+[ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="5_xy0s5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i60oi"]
 size = Vector2(20, 193)
@@ -46,6 +47,11 @@ position = Vector2(138, 0)
 shape = SubResource("RectangleShape2D_qylr3")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("5_xy0s5")
+enemies = Array[PackedScene]([ExtResource("5_o4yjn")])
+spawn_chance = 0.5
+box_pos = Vector2(-120, -75)
+box_scale = Vector2(240, 50)
 
 [node name="EnemyCat" parent="." instance=ExtResource("5_o4yjn")]
 position = Vector2(-73, -44)
