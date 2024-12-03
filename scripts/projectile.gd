@@ -6,7 +6,10 @@ class_name Projectile
 @export var despawn_time: float = 5
 @export var enemy_projectile: bool = false
 @export var damage: int = 1
+@export var hit_sound: AudioStream
+@export_range(-80, 24) var hit_volume_db: float = 0
 @onready var explosion_particle: CPUParticles2D = $Explosion
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var has_hit: bool = false
 var particle_played: bool = false
@@ -49,6 +52,9 @@ func handle_hit() -> void:
 	sprite.apply_scale(Vector2())
 
 	if !particle_played:
+		audio_player.volume_db = hit_volume_db
+		audio_player.stream = hit_sound
+		audio_player.play()
 		explosion_particle.emitting = true
 		particle_played = true
 	
