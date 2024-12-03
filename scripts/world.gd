@@ -8,6 +8,7 @@ const HEIGHT = 256
 @export var secondary_color: Color = Color(1, 1, 1)
 @export var scroll_speed: float = 1
 @export var base_height: float = 20
+@export var world_z_index: int = -2
 
 var sprite_deletion_count: int = 0
 
@@ -29,13 +30,13 @@ func _ready() -> void:
 	var sprite: Sprite2D = Sprite2D.new()
 	sprite.texture = texture
 	sprite.position = Vector2(0, 0)
-	sprite.z_index = -1
+	sprite.z_index = world_z_index
 	add_child(sprite)
 	
 	var second_sprite: Sprite2D = Sprite2D.new()
 	second_sprite.texture = texture
 	second_sprite.position = Vector2(0, HEIGHT)
-	second_sprite.z_index = -1
+	second_sprite.z_index = world_z_index
 	add_child(second_sprite)
 	
 	set_process(true)
@@ -52,5 +53,5 @@ func _process(delta: float) -> void:
 				var texture: ImageTexture = generate_background()
 				new_sprite.texture = texture
 				new_sprite.position = Vector2(0, -HEIGHT + base_height)
-				new_sprite.z_index = -1
+				new_sprite.z_index = world_z_index
 				add_child(new_sprite)

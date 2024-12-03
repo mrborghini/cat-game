@@ -6,10 +6,10 @@ class_name Entity
 @export var move_direction: MOVE_SET = MOVE_SET.NONE
 @export var movement_speed: float = 50
 @export var horizontal_rotation_deg: float = 10
-@export var health: int = 100
+@export var health: int = 2
 @export var shoot_delay: float = 0.3
 @export var shoot_animation_speed: float = 3
-@export var projectile_damage: int = 50
+@export var projectile_damage: int = 1
 
 var current_time: float = 0
 var last_shot_time: float = 0

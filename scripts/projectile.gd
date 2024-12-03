@@ -5,7 +5,7 @@ class_name Projectile
 @export var projectile_speed: float = 200
 @export var despawn_time: float = 5
 @export var enemy_projectile: bool = false
-@export var damage: int = 5
+@export var damage: int = 1
 @onready var explosion_particle: CPUParticles2D = $Explosion
 
 var has_hit: bool = false
