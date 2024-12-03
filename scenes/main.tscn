@@ -65,3 +65,4 @@ scale = Vector2(0.105, 0.105)
 theme_override_font_sizes/normal_font_size = 100
 text = "Fps:"
 script = ExtResource("6_frtvy")
+show_fps = false
