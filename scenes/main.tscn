@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdhr68sidstfa"]
+[gd_scene load_steps=12 format=3 uid="uid://cdhr68sidstfa"]
 
 [ext_resource type="PackedScene" uid="uid://bmjsssgtf561d" path="res://scenes/player.tscn" id="1_2werf"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_617ei"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="5_xy0s5"]
 [ext_resource type="Script" path="res://scripts/fps.gd" id="6_frtvy"]
 [ext_resource type="PackedScene" uid="uid://dfoc4fy3x0dho" path="res://scenes/hearts.tscn" id="7_n8ms2"]
+[ext_resource type="PackedScene" uid="uid://codwk21cgmbb" path="res://scenes/lose_screen.tscn" id="7_qgrfi"]
+[ext_resource type="FontFile" uid="uid://cfetcxoou3ucb" path="res://fonts/lucon.ttf" id="8_0mtpa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i60oi"]
 size = Vector2(20, 193)
@@ -22,11 +24,12 @@ scroll_speed = 50.0
 zoom = Vector2(2.5, 2.5)
 script = ExtResource("3_21ks4")
 
-[node name="Player" parent="." instance=ExtResource("1_2werf")]
+[node name="Player" parent="." node_paths=PackedStringArray("death_screen") instance=ExtResource("1_2werf")]
 position = Vector2(0, 82)
 heart_sprite = ExtResource("7_n8ms2")
 heart_pos = Vector2(-115, 80)
 heart_margin = 25.0
+death_screen = NodePath("../Control/LoseScreen")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -56,13 +59,17 @@ offset_top = -96.0
 offset_right = 128.0
 offset_bottom = 96.0
 
+[node name="LoseScreen" parent="Control" instance=ExtResource("7_qgrfi")]
+z_index = 1
+layout_mode = 1
+
 [node name="FPS" type="RichTextLabel" parent="Control"]
 layout_mode = 0
 offset_left = 2.0
 offset_right = 669.0
 offset_bottom = 160.0
 scale = Vector2(0.105, 0.105)
+theme_override_fonts/normal_font = ExtResource("8_0mtpa")
 theme_override_font_sizes/normal_font_size = 100
 text = "Fps:"
 script = ExtResource("6_frtvy")
-show_fps = false

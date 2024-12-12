@@ -7,7 +7,7 @@ class_name Entity
 @export var movement_speed: float = 50
 @export var horizontal_rotation_deg: float = 10
 @export var health: int = 2
-@export var shoot_delay: float = 0.3
+@export var shoot_delay_ms: float = 300
 @export var shoot_animation_speed: float = 3
 @export var projectile_damage: int = 1
 
@@ -64,6 +64,6 @@ func handle_shoot_delay(delta: float) -> void:
 
 	last_shot_time += delta
 
-	if last_shot_time > shoot_delay:
+	if last_shot_time > shoot_delay_ms / 1000:
 		shoot_blocked = false
 		last_shot_time = 0
