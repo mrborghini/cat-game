@@ -50,9 +50,9 @@ func shoot(is_enemy: bool = false) -> void:
 	var projectile: Projectile = projectile_scene.instantiate()
 	projectile.global_transform = self.global_transform
 	if is_enemy:
-		projectile.position.y += 10
+		projectile.position.y += self.scale.y * 10
 	else:
-		projectile.position.y -= 10
+		projectile.position.y -= self.scale.y * 10
 	
 	projectile.enemy_projectile = is_enemy
 	projectile.damage = projectile_damage

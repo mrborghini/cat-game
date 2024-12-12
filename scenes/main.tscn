@@ -30,6 +30,7 @@ heart_sprite = ExtResource("7_n8ms2")
 heart_pos = Vector2(-115, 80)
 heart_margin = 25.0
 death_screen = NodePath("../Control/LoseScreen")
+health = 3
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -73,3 +74,4 @@ theme_override_fonts/normal_font = ExtResource("8_0mtpa")
 theme_override_font_sizes/normal_font_size = 100
 text = "Fps:"
 script = ExtResource("6_frtvy")
+show_fps = false

@@ -159,4 +159,3 @@ animations = [{
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_xc5q7")
-animation = &"damage"

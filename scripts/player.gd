@@ -9,7 +9,7 @@ class_name Player
 var hearts: Array[AnimatedSprite2D] = []
 var hearts_setup: bool = false
 var heart_index: int = 0
-var last_health: int = self.health
+var last_health: int
 
 func setup_hearts() -> void:
 	if hearts_setup:
@@ -35,7 +35,7 @@ func _ready() -> void:
 	if !death_screen:
 		push_error("No death_screen has been set")
 		assert(false, "No death_screen has been set")
-	
+	self.last_health = self.health
 	death_screen.visible = false
 
 func handle_controls() -> void:
@@ -57,6 +57,7 @@ func handle_health() -> void:
 	if last_health == self.health:
 		return
 		
+	print("Took damage")
 	if heart_index <= 0:
 		death_screen.visible = true
 		queue_free()
