@@ -39,7 +39,8 @@ theme_override_fonts/normal_font = ExtResource("1_d4joh")
 theme_override_font_sizes/normal_font_size = 10
 text = "A problem has been detected and Windows has been shut down to prevent damage to your computer.
 
-*** STOP: 0x0000007B (0xFFFFF880009A9928, 0xFFFFFFFFC0000034, 0x0000000000000000, 0x0000000000000000)
+*** SCORE: :score: 
+(0xFFFFF880009A9928, 0xFFFFFFFFC0000034, 0x0000000000000000, 0x0000000000000000)
 
 INACCESSIBLE_BOOT_DEVICE
 
@@ -51,7 +52,8 @@ If problems continue, disable or remove any newly installed hardware or software
 
 Technical information:
 
-*** STOP: 0x0000007B (0xFFFFF880009A9928, 0xFFFFFFFFC0000034, 0x0000000000000000, 0x0000000000000000)
+*** :time:
+(0xFFFFF880009A9928, 0xFFFFFFFFC0000034, 0x0000000000000000, 0x0000000000000000)
 
 Collecting data for crash dump...
 Initializing disk for crash dump...

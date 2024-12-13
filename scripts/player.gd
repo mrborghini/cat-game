@@ -4,7 +4,6 @@ class_name Player
 @export var heart_sprite: PackedScene
 @export var heart_pos: Vector2 = Vector2(-20, 20)
 @export var heart_margin: float = 5
-@export var death_screen: Control
 
 var hearts: Array[AnimatedSprite2D] = []
 var hearts_setup: bool = false
@@ -32,11 +31,7 @@ func _ready() -> void:
 		push_error("No projectile has been set")
 		assert(false, "No projectile has been set")
 
-	if !death_screen:
-		push_error("No death_screen has been set")
-		assert(false, "No death_screen has been set")
 	self.last_health = self.health
-	death_screen.visible = false
 
 func handle_controls() -> void:
 	if Input.is_action_pressed("left"):
@@ -59,7 +54,7 @@ func handle_health() -> void:
 		
 	print("Took damage")
 	if heart_index <= 0:
-		death_screen.visible = true
+		PlayerScores.game_over = true
 		queue_free()
 
 	last_health = self.health

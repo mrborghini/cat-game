@@ -24,6 +24,7 @@ func take_damage(damage: int) -> void:
 
 func handle_health() -> void:
 	if health <= 0:
+		PlayerScores.score += 1
 		queue_free()
 
 func handle_movement() -> void:
