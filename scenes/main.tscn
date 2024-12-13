@@ -49,9 +49,6 @@ spawn_chance = 0.5
 box_pos = Vector2(-120, -75)
 box_scale = Vector2(240, 50)
 
-[node name="EnemyCat" parent="." instance=ExtResource("5_o4yjn")]
-position = Vector2(-73, -44)
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -61,6 +58,7 @@ offset_right = 128.0
 offset_bottom = 96.0
 
 [node name="LoseScreen" parent="Control" instance=ExtResource("7_qgrfi")]
+visible = false
 z_index = 1
 layout_mode = 1
 

@@ -10,18 +10,19 @@ class_name Projectile
 @export_range(-80, 24) var hit_volume_db: float = 0
 @onready var explosion_particle: CPUParticles2D = $Explosion
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var collision: CollisionShape2D = $CollisionShape2D
+@onready var sprite: Sprite2D = $Sprite2D
 
 var has_hit: bool = false
 var particle_played: bool = false
-@onready var sprite: Sprite2D = $Sprite2D
-
 var current_time: float = 0
 
 func _ready() -> void:
 	self.rotation_degrees = 0
 	connect("body_entered", _on_body_entered)
+	connect("area_entered", _on_body_entered)
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void:		
 	handle_hit()
 	# Handle despawn time
 	current_time = current_time + delta
@@ -57,6 +58,7 @@ func handle_hit() -> void:
 		audio_player.play()
 		explosion_particle.emitting = true
 		particle_played = true
+		collision.disabled = true
 	
 	if !explosion_particle.emitting:
 		queue_free()
@@ -64,4 +66,7 @@ func handle_hit() -> void:
 func _on_body_entered(body: Node) -> void:
 	if body is Entity && !has_hit:
 		body.take_damage(damage)
+		has_hit = true
+	
+	if body is Projectile && !has_hit:
 		has_hit = true
