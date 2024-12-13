@@ -7,12 +7,21 @@ class_name Enemy
 @export var left_movement_chance: float = 0.5
 @export var spawn_animation_ms: float = 1000
 @export var growth_scale: float = 1
+@export var become_boss_chance: float = 0.001
+@export var is_boss: bool = false
+@export var boss_health: int = 500
+@export var boss_scale: float = 5
 
 var growth_time: float = 0
 
 func _ready() -> void:
 	self.scale = Vector2.ZERO
 	movement_speed = randf_range(min_speed, max_speed)
+	is_boss = randf() < become_boss_chance
+	
+	if is_boss:
+		health = boss_health
+		growth_scale = boss_scale
 	
 func spawn_animation(delta: float) -> bool:
 	var scale_x: int = ceil(self.scale.x * 10)
