@@ -10,6 +10,7 @@ var updated: bool = false
 
 func update_message() -> void:
 	current_message = current_message.replace(":score:", str(PlayerScores.score))
+	current_message = current_message.replace(":highscore:", str(PlayerScores.high_score))
 	current_message = current_message.replace(":time:", str(PlayerScores.get_time_string().to_upper()))
 
 func _ready() -> void:

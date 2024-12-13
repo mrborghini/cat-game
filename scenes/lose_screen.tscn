@@ -40,6 +40,7 @@ theme_override_font_sizes/normal_font_size = 10
 text = "A problem has been detected and Windows has been shut down to prevent damage to your computer.
 
 *** SCORE: :score: 
+*** HIGH SCORE: :highscore:
 (0xFFFFF880009A9928, 0xFFFFFFFFC0000034, 0x0000000000000000, 0x0000000000000000)
 
 INACCESSIBLE_BOOT_DEVICE

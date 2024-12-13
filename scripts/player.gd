@@ -30,7 +30,7 @@ func _ready() -> void:
 	if !projectile_scene:
 		push_error("No projectile has been set")
 		assert(false, "No projectile has been set")
-
+	self.score_on_death = 0
 	self.last_health = self.health
 
 func handle_controls() -> void:

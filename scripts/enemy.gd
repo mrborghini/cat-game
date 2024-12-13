@@ -9,8 +9,9 @@ class_name Enemy
 @export var growth_scale: float = 1
 @export var become_boss_chance: float = 0.001
 @export var is_boss: bool = false
-@export var boss_health: int = 500
+@export var boss_health: int = 50
 @export var boss_scale: float = 5
+@export var shoot_chance: float = 0.7
 
 var growth_time: float = 0
 
@@ -22,6 +23,7 @@ func _ready() -> void:
 	if is_boss:
 		health = boss_health
 		growth_scale = boss_scale
+		score_on_death = int(boss_health / 2)
 	
 func spawn_animation(delta: float) -> bool:
 	var scale_x: int = ceil(self.scale.x * 10)
@@ -49,7 +51,6 @@ func _process(delta: float) -> void:
 		return
 
 	handle_movement()
-	shoot(true)
 	handle_shoot_delay(delta)
 	current_time += delta
 
@@ -59,7 +60,11 @@ func _process(delta: float) -> void:
 	if left_movement_chance == 0:
 		return
 
-	var left: bool = randf_range(0.1, 1.0) < left_movement_chance
+	var left: bool = randf() < left_movement_chance
+	var will_shoot: = randf() < shoot_chance
+
+	if will_shoot:
+		shoot(true)
 
 	if left:
 		self.move_direction = MOVE_SET.LEFT

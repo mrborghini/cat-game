@@ -10,6 +10,7 @@ class_name Entity
 @export var shoot_delay_ms: float = 300
 @export var shoot_animation_speed: float = 3
 @export var projectile_damage: int = 1
+@export var score_on_death: int = 1
 
 var current_time: float = 0
 var last_shot_time: float = 0
@@ -23,9 +24,11 @@ func take_damage(damage: int) -> void:
 	health -= damage
 
 func handle_health() -> void:
-	if health <= 0:
-		PlayerScores.score += 1
-		queue_free()
+	if health > 0:
+		return
+	
+	PlayerScores.add_score(score_on_death)
+	queue_free()
 
 func handle_movement() -> void:
 	match move_direction:
