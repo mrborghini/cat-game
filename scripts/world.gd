@@ -20,7 +20,7 @@ func generate_background() -> ImageTexture:
 		for y in range(HEIGHT):
 			var color: Color = Color(1, 1, 1) if randf() < white_probability else Color(0.1, 0.1, 0.1)
 			image.set_pixel(x, y, color)
-	
+
 	# Create a texture from the image
 	return ImageTexture.create_from_image(image)
 

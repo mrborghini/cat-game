@@ -34,7 +34,8 @@ gdscript/warnings/int_as_enum_without_match=2
 
 window/size/viewport_width=640
 window/size/viewport_height=480
-window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=0
 window/warnings/int_as_enum_without_match=2
 window/warnings/int_as_enum_without_cast=2

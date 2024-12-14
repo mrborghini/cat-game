@@ -23,7 +23,7 @@ func _ready() -> void:
 	if is_boss:
 		health = boss_health
 		growth_scale = boss_scale
-		score_on_death = int(boss_health / 2)
+		score_on_death = int(boss_health / 2.0)
 	
 func spawn_animation(delta: float) -> bool:
 	var scale_x: int = ceil(self.scale.x * 10)
