@@ -1,8 +1,6 @@
 extends RichTextLabel
 
-func _process(delta: float) -> void:
-	PlayerScores.score_time += delta
-	
+func _process(_delta: float) -> void:
 	# Format the score and time strings
 	var score_string: String = "Score: %d\n" % PlayerScores.score
 
