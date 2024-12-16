@@ -3,22 +3,37 @@ extends RichTextLabel
 class_name BlueScreenMessage
 
 @export var letters_delay_ms: float = 1
+@export var game_restart_delay_seconds: float = 5
+
 var current_message: String
-var i: int = 0
+var original_message: String
+var text_index: int = 0
 var current_time: float = 0
 var updated: bool = false
+var restart_time: float = 0
+
+func restart_game_after_delay(delta: float) -> void:
+	restart_time += delta
+	if restart_time > game_restart_delay_seconds:
+		restart_time = 0
+		PlayerScores.reset()
+	
 
 func update_message() -> void:
-	current_message = current_message.replace(":score:", str(PlayerScores.score))
+	self.text = ""
+	current_message = original_message.replace(":score:", str(PlayerScores.score))
 	current_message = current_message.replace(":highscore:", str(PlayerScores.high_score))
 	current_message = current_message.replace(":time:", str(PlayerScores.get_time_string().to_upper()))
 
 func _ready() -> void:
+	original_message = self.text
 	current_message = self.text
 	self.text = ""
 
 func _process(delta: float) -> void:
-	if not get_parent().visible:
+	if not PlayerScores.game_over:
+		updated = false
+		text_index = 0
 		return
 
 	if not updated:
@@ -31,8 +46,9 @@ func _process(delta: float) -> void:
 		
 	current_time = 0
 	
-	if len(current_message) - 1 == i:
+	if len(current_message) - 1 == text_index:
+		restart_game_after_delay(delta)
 		return
 	
-	self.text += current_message[i]
-	i += 1
+	self.text += current_message[text_index]
+	text_index += 1

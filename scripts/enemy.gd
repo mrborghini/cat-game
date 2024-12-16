@@ -45,6 +45,9 @@ func spawn_animation(delta: float) -> bool:
 	return true
 
 func _process(delta: float) -> void:
+	if PlayerScores.game_over:
+		queue_free()
+
 	handle_health()
 	
 	if spawn_animation(delta):

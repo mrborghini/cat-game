@@ -31,7 +31,6 @@ position = Vector2(0, 82)
 heart_sprite = ExtResource("7_n8ms2")
 heart_pos = Vector2(-115, 80)
 heart_margin = 25.0
-health = 3
 
 [node name="Walls" type="StaticBody2D" parent="."]
 

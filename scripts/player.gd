@@ -9,6 +9,8 @@ var hearts: Array[AnimatedSprite2D] = []
 var hearts_setup: bool = false
 var heart_index: int = 0
 var last_health: int
+var starting_health: int
+var starting_pos: Vector2
 
 func setup_hearts() -> void:
 	if hearts_setup:
@@ -31,7 +33,9 @@ func _ready() -> void:
 		push_error("No projectile has been set")
 		assert(false, "No projectile has been set")
 	self.score_on_death = 0
+	self.starting_health = self.health
 	self.last_health = self.health
+	starting_pos = self.position
 
 func handle_controls() -> void:
 	if Input.is_action_pressed("left"):
@@ -52,16 +56,24 @@ func handle_health() -> void:
 	if last_health == self.health:
 		return
 		
-	print("Took damage")
 	if heart_index <= 0:
 		PlayerScores.game_over = true
-		queue_free()
 
 	last_health = self.health
 	hearts[heart_index].play("damage")
 	heart_index -= 1
 
+	if PlayerScores.game_over:
+		self.health = starting_health
+		heart_index = starting_health - 1
+		self.position = starting_pos
+		self.move_direction = MOVE_SET.NONE
+		last_health = starting_health
+
 func _process(delta: float) -> void:
+	if PlayerScores.game_over:
+		return
+
 	setup_hearts()
 	handle_controls()
 	handle_movement()

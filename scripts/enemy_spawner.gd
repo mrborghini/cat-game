@@ -16,6 +16,10 @@ func _draw() -> void:
 var current_time: float = 0
 
 func _process(delta: float) -> void:
+	if PlayerScores.game_over:
+		current_time = 0
+		return
+
 	current_time += delta
 	
 	if current_time <= spawn_rate:

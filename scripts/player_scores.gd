@@ -19,3 +19,8 @@ func add_score(amount: int) -> void:
 		
 func _process(delta: float) -> void:
 	score_time += delta
+
+func reset() -> void:
+	game_over = false
+	score = 0
+	score_time = 0
