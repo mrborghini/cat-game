@@ -1,15 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://cdhr68sidstfa"]
+[gd_scene load_steps=12 format=3 uid="uid://cdhr68sidstfa"]
 
 [ext_resource type="PackedScene" uid="uid://bmjsssgtf561d" path="res://scenes/player.tscn" id="1_2werf"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_617ei"]
-[ext_resource type="Script" path="res://scripts/zoom.gd" id="3_21ks4"]
+[ext_resource type="Script" path="res://scripts/camera_zoom.gd" id="3_21ks4"]
 [ext_resource type="PackedScene" uid="uid://ccuywcocxesi8" path="res://scenes/enemy_cat.tscn" id="5_o4yjn"]
 [ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="5_xy0s5"]
 [ext_resource type="Script" path="res://scripts/fps.gd" id="6_frtvy"]
 [ext_resource type="PackedScene" uid="uid://dfoc4fy3x0dho" path="res://scenes/hearts.tscn" id="7_n8ms2"]
-[ext_resource type="PackedScene" uid="uid://codwk21cgmbb" path="res://scenes/lose_screen.tscn" id="7_qgrfi"]
 [ext_resource type="FontFile" uid="uid://cfetcxoou3ucb" path="res://fonts/lucon.ttf" id="8_0mtpa"]
-[ext_resource type="Script" path="res://scripts/lose_screen.gd" id="8_p12cv"]
 [ext_resource type="Script" path="res://scripts/stats_label.gd" id="10_u2dqq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i60oi"]
@@ -22,7 +20,7 @@ size = Vector2(20, 193)
 script = ExtResource("1_617ei")
 scroll_speed = 50.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="PlayerCamera" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
 script = ExtResource("3_21ks4")
 
@@ -57,19 +55,12 @@ offset_top = -96.0
 offset_right = 128.0
 offset_bottom = 96.0
 
-[node name="LoseScreen" parent="Control" instance=ExtResource("7_qgrfi")]
-visible = false
-z_index = 1
-layout_mode = 1
-script = ExtResource("8_p12cv")
-
 [node name="FPS" type="RichTextLabel" parent="Control"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 2.0
-offset_right = 180.0
+offset_left = 1.0
+offset_right = 180.04
 offset_bottom = 40.0
-scale = Vector2(0.5, 0.5)
 theme_override_fonts/normal_font = ExtResource("8_0mtpa")
 theme_override_font_sizes/normal_font_size = 16
 text = "Fps:"
@@ -79,14 +70,13 @@ show_fps = false
 [node name="StatsLabel" type="RichTextLabel" parent="Control"]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -64.0
-offset_top = 2.0
-offset_right = 64.0
-offset_bottom = 44.0
-grow_horizontal = 0
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 185.0
+offset_top = -191.0
+offset_right = 325.0
+offset_bottom = -129.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/normal_font = ExtResource("8_0mtpa")
 theme_override_font_sizes/normal_font_size = 16

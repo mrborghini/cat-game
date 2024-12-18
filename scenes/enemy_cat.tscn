@@ -95,7 +95,6 @@ motion_mode = 1
 script = ExtResource("1_dosoe")
 movement_delay = 1.0
 spawn_animation_ms = 200.0
-become_boss_chance = 0.01
 projectile_scene = ExtResource("2_hhcay")
 movement_speed = 25.0
 

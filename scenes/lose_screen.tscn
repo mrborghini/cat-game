@@ -1,39 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://codwk21cgmbb"]
+[gd_scene load_steps=4 format=3 uid="uid://codwk21cgmbb"]
 
+[ext_resource type="Script" path="res://scripts/lose_screen.gd" id="1_4sddm"]
 [ext_resource type="FontFile" uid="uid://cfetcxoou3ucb" path="res://fonts/lucon.ttf" id="1_d4joh"]
 [ext_resource type="Script" path="res://scripts/blue_screen.gd" id="2_uv12m"]
 
 [node name="LoseScreen" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+script = ExtResource("1_4sddm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.00392157, 0, 0.501961, 1)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = -89.0
-offset_right = 368.0
-offset_bottom = 274.0
+offset_right = 320.0
+offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.00392157, 0, 0.501961, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/normal_font = ExtResource("1_d4joh")
 theme_override_font_sizes/normal_font_size = 10
@@ -63,6 +55,4 @@ Dumping physical memory to disk: 0% ... 10% ... 50% ... 100%
 Physical memory dump complete.
 
 Contact your system administrator or technical support group for further assistance."
-fit_content = true
-scroll_active = false
 script = ExtResource("2_uv12m")
