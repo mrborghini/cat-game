@@ -8,6 +8,8 @@ class_name EnemySpawner
 @export var box_scale: Vector2 = Vector2(100, 100)
 @export var color: Color = Color(1, 0, 0, 0.5)
 @export var show_box: bool = false
+@export var higher_boss_chance_time_seconds: int = 30
+@export var boss_chance_after_time_seconds: float = 0.5
 
 func _draw() -> void:
 	if show_box:
@@ -33,7 +35,10 @@ func _process(delta: float) -> void:
 	
 	# Spawn enemies
 	for enemy in enemies:
-		var enemy_node: Node = enemy.instantiate()
+		var enemy_node: Enemy = enemy.instantiate()
+
+		if int(PlayerScores.score_time) % higher_boss_chance_time_seconds == 0:
+			enemy_node.become_boss_chance = boss_chance_after_time_seconds
 
 		var enemy_position: Vector2 = Vector2(
 			randf_range(box_pos.x, box_pos.x + box_scale.x),
