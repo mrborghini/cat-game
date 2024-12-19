@@ -1,4 +1,5 @@
 extends RichTextLabel
+class_name StatsLabel
 
 func _process(_delta: float) -> void:
 	var score_string: String = "Score: %d\n" % PlayerScores.score

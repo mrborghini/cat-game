@@ -1,4 +1,5 @@
 extends Node2D
+class_name World
 
 const WIDTH = 256
 const HEIGHT = 256

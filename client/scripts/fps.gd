@@ -1,4 +1,5 @@
 extends RichTextLabel
+class_name Fps
 
 @export var show_fps: bool = true
 

@@ -1,6 +1,5 @@
 extends RichTextLabel
-
-class_name BlueScreenMessage
+class_name BlueScreen
 
 @export var letters_delay_ms: float = 1
 @export var game_restart_delay_seconds: float = 5

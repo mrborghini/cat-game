@@ -1,4 +1,5 @@
 extends Sprite2D
+class_name BackgroundMove
 
 @export var scroll_speed: float = 1
 

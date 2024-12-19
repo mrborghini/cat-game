@@ -1,5 +1,4 @@
 extends Camera2D
-
 class_name CameraZoom
 
 @export var base_resolution: Vector2 = Vector2(640, 480)
