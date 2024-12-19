@@ -9,9 +9,9 @@ class_name EntitySpawner
 @export var color: Color = Color(1, 0, 0, 0.5)
 @export var show_box: bool = false
 @export var higher_boss_chance_time_seconds: int = 30
-@export var boss_chance_after_time_seconds: float = 0.5
+@export var boss_chance_after_time_seconds: float = 0.4
 @export var even_higher_boss_chance_time_seconds: int = 120
-@export var boss_chance_after_2nd_time_seconds: float = 0.7
+@export var boss_chance_after_2nd_time_seconds: float = 0.6
 
 func _draw() -> void:
 	if show_box:
@@ -49,12 +49,11 @@ func _process(delta: float) -> void:
 		
 	current_time = 0
 	
-	var rng: float = randf()
-	if rng > spawn_chance:
-		return
-	
 	# Spawn enemies
 	for entity in entities:
+		var rng: float = randf()
+		if rng > spawn_chance:
+			continue
 		var entity_node: Node = entity.instantiate()
 		if entity_node is Enemy:
 			spawn_enemy(entity_node as Enemy)
