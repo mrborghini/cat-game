@@ -11,9 +11,17 @@ var text_index: int = 0
 var current_time: float = 0
 var updated: bool = false
 var restart_time: float = 0
+var last_second: int = 0
 
 func restart_game_after_delay(delta: float) -> void:
 	restart_time += delta
+	var remaining_time: int = ceil(game_restart_delay_seconds - restart_time)
+	
+	if last_second != remaining_time:
+		self.text += "\n%d..." % remaining_time
+
+	last_second = remaining_time
+
 	if restart_time > game_restart_delay_seconds:
 		restart_time = 0
 		PlayerScores.reset()

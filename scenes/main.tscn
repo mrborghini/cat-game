@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdhr68sidstfa"]
+[gd_scene load_steps=13 format=3 uid="uid://cdhr68sidstfa"]
 
 [ext_resource type="PackedScene" uid="uid://bmjsssgtf561d" path="res://scenes/player.tscn" id="1_2werf"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_617ei"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/fps.gd" id="6_frtvy"]
 [ext_resource type="PackedScene" uid="uid://dfoc4fy3x0dho" path="res://scenes/hearts.tscn" id="7_n8ms2"]
 [ext_resource type="FontFile" uid="uid://cfetcxoou3ucb" path="res://fonts/lucon.ttf" id="8_0mtpa"]
+[ext_resource type="PackedScene" uid="uid://codwk21cgmbb" path="res://scenes/lose_screen.tscn" id="10_m076i"]
 [ext_resource type="Script" path="res://scripts/stats_label.gd" id="10_u2dqq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i60oi"]
@@ -29,6 +30,14 @@ position = Vector2(0, 82)
 heart_sprite = ExtResource("7_n8ms2")
 heart_pos = Vector2(-115, 80)
 heart_margin = 25.0
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+z_index = -3
+offset_left = -675.0
+offset_top = -540.0
+offset_right = 744.0
+offset_bottom = 430.0
+color = Color(0, 0, 0, 1)
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -83,3 +92,13 @@ theme_override_font_sizes/normal_font_size = 16
 text = "score: 0
 Time: 0:00"
 script = ExtResource("10_u2dqq")
+
+[node name="LoseScreen" parent="Control" instance=ExtResource("10_m076i")]
+layout_mode = 1
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.99664, 0.999095)

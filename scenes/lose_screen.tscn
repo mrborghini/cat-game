@@ -5,28 +5,26 @@
 [ext_resource type="Script" path="res://scripts/blue_screen.gd" id="2_uv12m"]
 
 [node name="LoseScreen" type="Control"]
+z_index = 3
 layout_mode = 3
+anchor_right = 0.444
+anchor_bottom = 0.44
+offset_right = -284.16
+offset_bottom = -211.2
 script = ExtResource("1_4sddm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_right = 320.0
-offset_bottom = 240.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 286.0
+offset_bottom = 212.0
 color = Color(0.00392157, 0, 0.501961, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_right = 640.0
-offset_bottom = 480.0
-scale = Vector2(0.5, 0.5)
+offset_right = 636.0
+offset_bottom = 473.0
+scale = Vector2(0.45, 0.45)
 theme_override_fonts/normal_font = ExtResource("1_d4joh")
 theme_override_font_sizes/normal_font_size = 10
 text = "A problem has been detected and Windows has been shut down to prevent damage to your computer.
