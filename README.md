@@ -7,7 +7,7 @@ A space Cat shooter game.
 ## Setup
 
 1. Download [Godot](https://godotengine.org/download) (preferably the non C# version)
-2. Import the repo into Godot
+2. Import the the client folder from this repo into Godot
 
 ## Demo
 
