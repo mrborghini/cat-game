@@ -6,7 +6,8 @@ class_name BlueScreen
 
 var current_message: String
 var original_message: String
-var text_index: int = 0
+var words: Array = []
+var word_index: int = 0
 var current_time: float = 0
 var updated: bool = false
 var restart_time: float = 0
@@ -31,6 +32,7 @@ func update_message() -> void:
 	current_message = original_message.replace(":score:", str(PlayerScores.score))
 	current_message = current_message.replace(":highscore:", str(PlayerScores.high_score))
 	current_message = current_message.replace(":time:", str(PlayerScores.get_time_string().to_upper()))
+	words = current_message.split(" ")
 
 func _ready() -> void:
 	original_message = self.text
@@ -40,7 +42,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not PlayerScores.game_over:
 		updated = false
-		text_index = 0
+		word_index = 0
 		return
 
 	if not updated:
@@ -53,9 +55,9 @@ func _process(delta: float) -> void:
 		
 	current_time = 0
 	
-	if len(current_message) - 1 == text_index:
+	if len(words) - 1 == word_index:
 		restart_game_after_delay(delta)
 		return
 	
-	self.text += current_message[text_index]
-	text_index += 1
+	self.text += words[word_index] + " "
+	word_index += 1
