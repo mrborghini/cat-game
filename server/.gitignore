@@ -1,0 +1,11 @@
+# Rust specific
+target/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+
+# Other
+*.log
+.directory
