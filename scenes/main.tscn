@@ -94,7 +94,9 @@ Time: 0:00"
 script = ExtResource("10_u2dqq")
 
 [node name="LoseScreen" parent="Control" instance=ExtResource("10_m076i")]
+visible = false
 layout_mode = 1
+anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_right = 0.0
