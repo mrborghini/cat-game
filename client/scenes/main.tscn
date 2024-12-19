@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_617ei"]
 [ext_resource type="Script" path="res://scripts/camera_zoom.gd" id="3_21ks4"]
 [ext_resource type="PackedScene" uid="uid://ccuywcocxesi8" path="res://scenes/enemy_cat.tscn" id="5_o4yjn"]
-[ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="5_xy0s5"]
+[ext_resource type="Script" path="res://scripts/entity_spawner.gd" id="5_xy0s5"]
 [ext_resource type="Script" path="res://scripts/fps.gd" id="6_frtvy"]
 [ext_resource type="PackedScene" uid="uid://dfoc4fy3x0dho" path="res://scenes/hearts.tscn" id="7_n8ms2"]
 [ext_resource type="FontFile" uid="uid://cfetcxoou3ucb" path="res://fonts/lucon.ttf" id="8_0mtpa"]
@@ -51,10 +51,7 @@ shape = SubResource("RectangleShape2D_qylr3")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("5_xy0s5")
-enemies = Array[PackedScene]([ExtResource("5_o4yjn")])
-spawn_chance = 0.5
-box_pos = Vector2(-120, -75)
-box_scale = Vector2(240, 50)
+entities = Array[PackedScene]([ExtResource("5_o4yjn")])
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
